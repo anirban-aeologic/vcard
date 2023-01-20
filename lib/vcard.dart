@@ -139,7 +139,7 @@ class VCard {
     String contents = getFormattedString();
 
     final directory = await getApplicationDocumentsDirectory();
-    final fs = File('${directory.path}/vCard/exports/$filename');
+    final fs = await File('${directory.path}/$filename').create();
     fs.writeAsStringSync(contents);
   }
 
